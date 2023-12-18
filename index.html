@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi GitHub Page</title>
+</head>
+<body>
+
+  <script>
+    // Función para obtener los parámetros de la URL
+    function obtenerParametrosURL() {
+      var parametros = {};
+      var url = window.location.href;
+      var partes = url.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) {
+        parametros[key] = decodeURIComponent(value);
+      });
+      return parametros;
+    }
+
+    // Obtén los parámetros de la URL al cargar la página
+    var parametros = obtenerParametrosURL();
+    console.log('Parámetros de la URL:', parametros);
+
+    // Puedes realizar acciones basadas en los parámetros, por ejemplo, guardarlos
+    // en alguna variable, mostrarlos en la página, etc.
+    // Ejemplo:
+    var parametro1 = parametros.parametro1 || 'Valor predeterminado';
+    var parametro2 = parametros.parametro2 || 'Valor predeterminado';
+
+    console.log('Parámetro 1:', parametro1);
+    console.log('Parámetro 2:', parametro2);
+  </script>
+
+</body>
+</html>
