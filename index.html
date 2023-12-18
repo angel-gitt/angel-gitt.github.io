@@ -41,8 +41,8 @@
     // Ejemplo:
     var li_fat_id = parametros.li_fat_id || 'NA';
     var utm_campaign = parametros.utm_campaign || 'NA';
-    var checksum_li_fat_id = calcularChecksum(li_fat_id);
-    var checksum_utm_campaign = calcularChecksum(utm_campaign);
+    var checksum_li_fat_id = await calcularChecksum(li_fat_id);
+    var checksum_utm_campaign = await calcularChecksum(utm_campaign);
 
     window.location.replace(`https://docs.google.com/forms/d/e/1FAIpQLScpvo0p6xowcTs3U7P9939bQHQNRPHJsP4JHWxnUthmjS6-ng/formResponse?entry.464165649=${li_fat_id}&entry.716793638=${checksum_li_fat_id}&entry.1313550902=${utm_campaign}&entry.2063058597=${checksum_utm_campaign}&continue=1`);
   </script>
