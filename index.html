@@ -8,6 +8,20 @@
 <body>
 
   <script>
+    // Función para calcular el checksum de los parámetros
+    async function calcularChecksum(string) {
+      const encoder = new TextEncoder();
+      const data = encoder.encode(string);
+  
+      // Usa el algoritmo de hash deseado, como 'SHA-256', 'SHA-1', 'MD5', etc.
+      const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+
+      // Convierte el buffer de hash a una cadena hexadecimal
+      const hashArray = Array.from(new Uint8Array(hashBuffer));
+      const hashHex = hashArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
+
+      return hashHex;
+    }
     // Función para obtener los parámetros de la URL
     function obtenerParametrosURL() {
       var parametros = {};
@@ -25,10 +39,12 @@
     // Puedes realizar acciones basadas en los parámetros, por ejemplo, guardarlos
     // en alguna variable, mostrarlos en la página, etc.
     // Ejemplo:
-    var parametro1 = parametros.li_fat_id || 'NA';
-    var parametro2 = parametros.utm_campaign || 'NA';
+    var li_fat_id = parametros.li_fat_id || 'NA';
+    var utm_campaign = parametros.utm_campaign || 'NA';
+    var checksum_li_fat_id = calcularChecksum(li_fat_id);
+    var checksum_utm_campaign = calcularChecksum(utm_campaign);
 
-    window.location.replace(`https://docs.google.com/forms/d/e/1FAIpQLScpvo0p6xowcTs3U7P9939bQHQNRPHJsP4JHWxnUthmjS6-ng/formResponse?entry.464165649=${parametro1}&entry.1313550902=${parametro2}&continue=1`);
+    window.location.replace(`https://docs.google.com/forms/d/e/1FAIpQLScpvo0p6xowcTs3U7P9939bQHQNRPHJsP4JHWxnUthmjS6-ng/formResponse?entry.464165649=${li_fat_id}&entry.716793638=${checksum_li_fat_id}&entry.1313550902=${utm_campaign}&entry.2063058597=${checksum_utm_campaign}&continue=1`);
   </script>
 
 </body>
