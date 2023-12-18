@@ -25,11 +25,10 @@
     // Puedes realizar acciones basadas en los parámetros, por ejemplo, guardarlos
     // en alguna variable, mostrarlos en la página, etc.
     // Ejemplo:
-    var parametro1 = parametros.parametro1 || 'Valor predeterminado';
-    var parametro2 = parametros.parametro2 || 'Valor predeterminado';
+    var parametro1 = parametros.li_fat_id || 'NA';
+    var parametro2 = parametros.utm_campaign || 'NA';
 
-    console.log('Parámetro 1:', parametro1);
-    console.log('Parámetro 2:', parametro2);
+    window.location.replace(`http://www.w3schools.com?li_fat_id=${parametro1}&utm_campaign=${parametro2}`);
   </script>
 
 </body>
