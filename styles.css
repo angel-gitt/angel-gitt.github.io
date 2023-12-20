@@ -1,26 +1,64 @@
-/* ... Estilos anteriores ... */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
 
-.profile-picture-placeholder {
-    width: 150px; /* Puedes ajustar el tamaño según lo necesites */
+.header {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    text-align: center;
+    padding: 60px 0;
+}
+
+.profile-picture {
+    width: 150px;
     height: 150px;
     background-color: #ecf0f1;
-    border-radius: 50%; /* Hace que el div sea circular */
-    margin: 0 auto 20px; /* Centra y agrega espacio debajo */
-    background-image: url('ruta_a_tu_imagen.jpg'); /* Aquí colocarás la ruta de tu foto */
-    background-size: cover;
-    background-position: center;
-    border: 3px solid #2c3e50; /* Un borde para destacar */
+    border-radius: 50%;
+    margin: 20px auto;
 }
 
-nav ul li a i {
-    font-size: 24px;
-    margin: 0 10px; /* Espacio entre íconos */
-    color: #2c3e50;
-    transition: color 0.3s ease;
+.navbar {
+    background-color: #34495e;
+    padding: 15px 0;
+    text-align: center;
 }
 
-nav ul li a i:hover {
-    color: #34495e;
+.navbar ul {
+    list-style-type: none;
 }
 
-/* ... Resto de estilos ... */
+.navbar ul li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #ecf0f1;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.navbar ul li a:hover {
+    background-color: #2c3e50;
+}
+
+.section {
+    padding: 40px;
+    margin: 30px;
+    background-color: #ecf0f1;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.footer {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    text-align: center;
+    padding: 20px 0;
+}
