@@ -2,20 +2,17 @@
 
 Personal academic website for Ángel Merino Hernández.
 
-## Highlights
-
-- Custom editorial / field-notes visual style
-- GitHub profile photo integrated as portrait
-- Improved publications layout with journal, conference, and poster outputs
-- Talks, tutorials, and public events section, including CyberJourney
+## This version
+- Lighter editorial / minimal aesthetic
+- No dark futuristic container styling
+- No rotating phrase generator
+- Publications and talks redistributed into cleaner sections
 - Plain HTML, CSS, and JavaScript
 
 ## Deploy
 
-Replace the current files in `angel-gitt/angel-gitt.github.io` and push to `main`:
-
 ```bash
 git add index.html README.md SOURCES.md
-git commit -m "Add SIGMETRICS 2024 tutorial"
+git commit -m "Implement lighter editorial website design"
 git push origin main
 ```
