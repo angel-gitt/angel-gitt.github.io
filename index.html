@@ -4,363 +4,460 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Ángel Merino Hernández — PhD Candidate at Universidad Carlos III de Madrid researching online advertising, privacy, social networks, and automated data collection." />
-  <meta name="theme-color" content="#0b1020" />
-  <title>Ángel Merino Hernández · PhD Candidate · UC3M</title>
+  <meta name="theme-color" content="#0f1726" />
+  <title>Ángel Merino Hernández · UC3M</title>
   <style>
-    :root {
-      --bg: #0b1020;
-      --bg-soft: #11182d;
-      --card: rgba(255, 255, 255, 0.075);
-      --card-strong: rgba(255, 255, 255, 0.12);
-      --text: #eef2ff;
-      --muted: #b8c1d9;
-      --subtle: #7f8aa7;
-      --accent: #67e8f9;
-      --accent-2: #a78bfa;
-      --accent-3: #fbbf24;
-      --border: rgba(255, 255, 255, 0.14);
-      --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
-      --radius: 26px;
-      --max: 1120px;
+    :root{
+      --bg:#0f1726;
+      --panel:#f4f0e8;
+      --panel-2:#ece6db;
+      --ink:#142033;
+      --ink-soft:#435066;
+      --line:rgba(20,32,51,.12);
+      --line-strong:rgba(20,32,51,.22);
+      --accent:#1f8ea3;
+      --accent-2:#8f5bd6;
+      --accent-3:#d88f25;
+      --white:#fff;
+      --max:1180px;
+      --shadow:0 24px 60px rgba(2,10,25,.18);
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color:var(--ink);
       background:
-        radial-gradient(circle at 8% 10%, rgba(103, 232, 249, 0.18), transparent 28%),
-        radial-gradient(circle at 80% 5%, rgba(167, 139, 250, 0.16), transparent 32%),
-        radial-gradient(circle at 50% 100%, rgba(251, 191, 36, 0.10), transparent 30%),
-        var(--bg);
-      color: var(--text);
-      line-height: 1.6;
+        linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0) 22%),
+        radial-gradient(circle at 10% 12%, rgba(31,142,163,.22), transparent 18%),
+        radial-gradient(circle at 85% 10%, rgba(143,91,214,.16), transparent 20%),
+        linear-gradient(180deg, var(--bg), #101b2d 40%, #0b1422);
+      min-height:100vh;
     }
 
-    a { color: inherit; text-decoration: none; }
-    a:hover { color: var(--accent); }
-
-    .container {
-      width: min(var(--max), calc(100% - 40px));
-      margin: 0 auto;
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.13;
+      background-image:
+        linear-gradient(rgba(255,255,255,.18) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.18) 1px, transparent 1px);
+      background-size:28px 28px;
+      mask-image:linear-gradient(180deg, rgba(0,0,0,.8), rgba(0,0,0,.2));
     }
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      backdrop-filter: blur(18px);
-      background: rgba(11, 16, 32, 0.76);
-      border-bottom: 1px solid var(--border);
+    a{color:inherit;text-decoration:none}
+    a:hover{color:var(--accent)}
+    .container{width:min(var(--max), calc(100% - 38px));margin:0 auto}
+
+    header{
+      position:sticky; top:0; z-index:30;
+      background:rgba(11,20,34,.74);
+      backdrop-filter: blur(14px);
+      border-bottom:1px solid rgba(255,255,255,.08);
     }
 
-    nav {
-      min-height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 22px;
+    nav{
+      min-height:72px;
+      display:flex; align-items:center; justify-content:space-between; gap:18px;
     }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 850;
-      letter-spacing: -0.04em;
+    .brand{
+      display:flex; align-items:center; gap:14px; color:#f6f3ed;
     }
 
-    .brand-mark {
-      width: 38px;
-      height: 38px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      display: grid;
-      place-items: center;
-      color: #08111f;
-      box-shadow: 0 14px 40px rgba(103, 232, 249, 0.25);
+    .brand-mark{
+      width:40px; height:40px; border-radius:14px;
+      display:grid; place-items:center;
+      background:linear-gradient(135deg, var(--accent), var(--accent-2));
+      color:white; font-weight:800;
+      box-shadow:0 12px 28px rgba(31,142,163,.28);
     }
 
-    .nav-links {
-      display: flex;
-      gap: 18px;
-      color: var(--muted);
-      font-size: 0.95rem;
+    .brand-name{display:flex; flex-direction:column; line-height:1.05}
+    .brand-name strong{font-size:1rem; letter-spacing:-.03em}
+    .brand-name span{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size:.74rem; color:rgba(255,255,255,.66);
+      text-transform:uppercase; letter-spacing:.12em;
     }
 
-    .nav-links a { padding: 8px 0; }
+    .nav-links{display:flex; gap:18px; flex-wrap:wrap}
+    .nav-links a{color:rgba(255,255,255,.78);font-size:.92rem;padding:8px 0}
 
-    .hero {
-      padding: 88px 0 56px;
-      display: grid;
-      grid-template-columns: 1.25fr 0.75fr;
-      gap: 36px;
-      align-items: center;
+    .hero-wrap{padding:42px 0 26px}
+    .hero{
+      display:grid;
+      grid-template-columns: 1.18fr .82fr;
+      gap:24px;
+      align-items:stretch;
     }
 
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 12px;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.06);
-      color: var(--muted);
-      font-size: 0.92rem;
+    .hero-main, .hero-side, .section-card, .wide-card, .footer-card{
+      background:var(--panel);
+      border:1px solid rgba(255,255,255,.16);
+      border-radius:30px;
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
     }
 
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: var(--accent);
-      box-shadow: 0 0 20px var(--accent);
+    .hero-main{padding:34px 34px 30px}
+    .hero-main::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        linear-gradient(180deg, transparent, rgba(255,255,255,.35)),
+        linear-gradient(90deg, transparent 0 82%, rgba(20,32,51,.04) 82% 100%);
+      pointer-events:none;
     }
 
-    h1 {
-      margin: 22px 0 18px;
-      font-size: clamp(2.6rem, 8vw, 5.8rem);
-      line-height: 0.95;
-      letter-spacing: -0.08em;
+    .hero-side{
+      padding:22px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.58), rgba(255,255,255,.18)),
+        var(--panel-2);
     }
 
-    .gradient-text {
-      background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+    .eyebrow{
+      display:inline-flex; align-items:center; gap:10px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size:.76rem; text-transform:uppercase; letter-spacing:.14em;
+      color:var(--ink-soft);
+      padding:8px 11px; border-radius:999px;
+      background:rgba(20,32,51,.05);
+      border:1px solid var(--line);
     }
 
-    .lead {
-      max-width: 790px;
-      color: var(--muted);
-      font-size: clamp(1.08rem, 2.4vw, 1.34rem);
+    .eyebrow .dot{
+      width:8px; height:8px; border-radius:999px; background:var(--accent);
+      box-shadow:0 0 0 4px rgba(31,142,163,.11);
     }
 
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 30px;
+    h1{
+      margin:22px 0 16px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size:clamp(2.7rem, 8vw, 5.7rem);
+      line-height:.96;
+      letter-spacing:-.06em;
+      max-width:10.8ch;
     }
 
-    .button {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 12px 18px;
-      font-weight: 750;
-      background: rgba(255, 255, 255, 0.07);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+    .headline-accent{color:var(--accent);font-style:italic}
+    .lead{
+      max-width:780px;
+      color:var(--ink-soft);
+      font-size:clamp(1.04rem, 2.2vw, 1.22rem);
+      line-height:1.72;
+      margin:0;
     }
 
-    .button.primary {
-      border-color: transparent;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #07111f;
+    .actions{display:flex; flex-wrap:wrap; gap:12px; margin-top:28px}
+    .button{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:12px 16px;
+      border-radius:999px;
+      border:1px solid var(--line-strong);
+      color:var(--ink);
+      background:rgba(255,255,255,.7);
+      font-weight:650;
+      transition:transform .15s ease;
+      cursor:pointer;
+    }
+    .button:hover{transform:translateY(-1px)}
+    .button.primary{
+      background:linear-gradient(135deg, var(--accent), var(--accent-2));
+      color:#fff;
+      border-color:transparent;
     }
 
-    .profile-card {
-      padding: 24px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.055));
-      box-shadow: var(--shadow);
-      transform: rotate(1deg);
+    .micro-note{
+      margin-top:20px;
+      padding-top:18px;
+      border-top:1px dashed var(--line-strong);
+      display:grid; grid-template-columns:150px 1fr; gap:14px;
+      color:var(--ink-soft);
+      font-size:.95rem;
     }
 
-    .avatar {
-      width: 92px;
-      height: 92px;
-      border-radius: 28px;
-      display: grid;
-      place-items: center;
-      font-size: 2rem;
-      font-weight: 900;
-      letter-spacing: -0.08em;
-      background: linear-gradient(135deg, var(--accent-2), var(--accent));
-      color: #08111f;
-      margin-bottom: 22px;
+    .micro-note strong, .section-kicker, .fact strong, .pub-meta, .event-date{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      text-transform:uppercase; letter-spacing:.12em;
     }
 
-    .profile-card h2 {
-      margin: 0 0 8px;
-      font-size: 1.55rem;
-      letter-spacing: -0.04em;
+    .micro-note strong{font-size:.76rem;color:var(--ink)}
+
+    .portrait-card{
+      background:rgba(255,255,255,.42);
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:14px;
     }
 
-    .profile-card p { color: var(--muted); margin: 0; }
-
-    .facts {
-      margin-top: 22px;
-      display: grid;
-      gap: 10px;
+    .portrait{
+      width:100%;
+      aspect-ratio: 1 / 1;
+      object-fit:cover;
+      border-radius:20px;
+      display:block;
+      filter:saturate(.94) contrast(1.02);
     }
 
-    .fact {
-      padding: 13px 14px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.075);
-      border: 1px solid var(--border);
+    .portrait-caption{
+      margin:12px 2px 0;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      color:var(--ink-soft);
+      font-size:.9rem;
     }
 
-    .fact strong { display: block; font-size: 0.88rem; color: var(--accent); }
-    .fact span { color: var(--muted); font-size: 0.94rem; }
-
-    section { padding: 44px 0; }
-
-    .section-head {
-      display: flex;
-      justify-content: space-between;
-      gap: 24px;
-      align-items: end;
-      margin-bottom: 20px;
+    .profile-facts{display:grid; gap:10px; margin-top:14px}
+    .fact{
+      background:rgba(255,255,255,.48);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:12px 13px;
     }
 
-    .section-head h2 {
-      margin: 0;
-      font-size: clamp(1.8rem, 4vw, 3rem);
-      line-height: 1;
-      letter-spacing: -0.06em;
+    .fact strong{
+      display:block;
+      font-size:.71rem;
+      color:var(--accent);
+      margin-bottom:4px;
     }
 
-    .section-head p {
-      max-width: 560px;
-      margin: 0;
-      color: var(--muted);
+    .fact span{color:var(--ink-soft); font-size:.94rem}
+
+    section{padding:18px 0}
+    .section-card{padding:26px 26px 28px}
+
+    .section-top{
+      display:grid;
+      grid-template-columns:180px 1fr;
+      gap:20px;
+      align-items:start;
+      margin-bottom:20px;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
+    .section-kicker{
+      font-size:.78rem; color:var(--ink-soft);
+      padding-top:8px;
     }
 
-    .grid.two { grid-template-columns: repeat(2, 1fr); }
-
-    .card {
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 22px;
-      background: var(--card);
-      box-shadow: 0 14px 50px rgba(0, 0, 0, 0.18);
+    .section-heading h2{
+      margin:0 0 8px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size:clamp(1.85rem, 4vw, 3rem);
+      letter-spacing:-.05em;
+      line-height:1;
     }
 
-    .card:hover { background: var(--card-strong); transform: translateY(-2px); transition: 180ms ease; }
-    .card h3 { margin: 0 0 10px; line-height: 1.18; letter-spacing: -0.035em; }
-    .card p { margin: 0; color: var(--muted); }
+    .section-heading p{margin:0; color:var(--ink-soft); max-width:760px}
 
-    .tag-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 18px;
+    .cards{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+    .cards.two{grid-template-columns:repeat(2,1fr)}
+
+    .card{
+      background:rgba(255,255,255,.44);
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:20px;
+      min-height:100%;
+      position:relative;
     }
 
-    .tag {
-      color: var(--muted);
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.055);
-      border-radius: 999px;
-      padding: 6px 10px;
-      font-size: 0.78rem;
-      white-space: nowrap;
+    .card::before{
+      content:"";
+      position:absolute; top:0; left:0; right:0;
+      height:5px;
+      background:linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3));
+      border-radius:22px 22px 0 0;
+      opacity:.9;
     }
 
-    .timeline {
-      display: grid;
-      gap: 14px;
+    .card h3{
+      margin:10px 0 10px;
+      line-height:1.16;
+      letter-spacing:-.03em;
+      font-size:1.14rem;
     }
 
-    .timeline-item {
-      display: grid;
-      grid-template-columns: 170px 1fr;
-      gap: 18px;
-      padding: 20px;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      background: var(--card);
+    .card p{margin:0; color:var(--ink-soft); font-size:.98rem}
+    .meta-row{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px}
+    .chip{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.72);
+      padding:6px 10px; border-radius:999px;
+      font-size:.76rem; color:var(--ink-soft);
+      white-space:nowrap;
     }
 
-    .time { color: var(--accent); font-weight: 800; }
-    .timeline-item h3 { margin: 0 0 6px; }
-    .timeline-item p { margin: 0; color: var(--muted); }
-
-    .paper {
-      display: grid;
-      gap: 8px;
+    .pub-layout{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:14px;
+      align-items:stretch;
     }
 
-    .paper small {
-      color: var(--accent);
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
+    .publication{
+      background:rgba(255,255,255,.46);
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:20px;
+      display:grid;
+      gap:10px;
+      position:relative;
+      overflow:hidden;
     }
 
-    .wide-card {
-      display: grid;
-      grid-template-columns: 1fr 0.9fr;
-      gap: 18px;
-      align-items: center;
-      padding: 26px;
-      border-radius: calc(var(--radius) + 8px);
-      border: 1px solid var(--border);
-      background: linear-gradient(135deg, rgba(103,232,249,0.12), rgba(167,139,250,0.11));
-      box-shadow: var(--shadow);
+    .publication.featured{
+      padding:24px;
+      background:
+        linear-gradient(135deg, rgba(31,142,163,.11), rgba(143,91,214,.10)),
+        rgba(255,255,255,.56);
     }
 
-    .joke-box {
-      min-height: 140px;
-      display: grid;
-      align-items: center;
-      border-radius: var(--radius);
-      padding: 22px;
-      border: 1px dashed rgba(255,255,255,0.25);
-      background: rgba(11,16,32,0.38);
-      color: var(--text);
-      font-size: 1.08rem;
+    .publication::after{
+      content:"";
+      position:absolute; inset:auto 0 0 0;
+      height:4px;
+      background:linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3));
+      opacity:.75;
     }
 
-    footer {
-      padding: 44px 0 60px;
-      color: var(--subtle);
+    .pub-meta{
+      font-size:.72rem;
+      color:var(--accent);
+      font-weight:800;
     }
 
-    footer .container {
-      border-top: 1px solid var(--border);
-      padding-top: 24px;
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
+    .publication h3{
+      margin:0;
+      font-size:1.22rem;
+      line-height:1.16;
+      letter-spacing:-.035em;
     }
 
-    @media (max-width: 860px) {
-      .hero, .wide-card { grid-template-columns: 1fr; }
-      .profile-card { transform: none; }
-      .grid, .grid.two { grid-template-columns: 1fr; }
-      .timeline-item { grid-template-columns: 1fr; }
-      .section-head { display: block; }
-      .section-head p { margin-top: 10px; }
-      .nav-links { display: none; }
+    .publication.featured h3{
+      font-family:Georgia, "Times New Roman", serif;
+      font-size:clamp(1.5rem, 3vw, 2.05rem);
+      letter-spacing:-.045em;
+    }
+
+    .publication p{margin:0;color:var(--ink-soft)}
+    .pub-list{display:grid; gap:14px}
+
+    .event-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:14px}
+    .event{
+      display:grid;
+      grid-template-columns:112px 1fr;
+      gap:16px;
+      padding:18px;
+      background:rgba(255,255,255,.43);
+      border:1px solid var(--line);
+      border-radius:22px;
+    }
+
+    .event-date{
+      color:var(--accent);
+      font-size:.74rem;
+      line-height:1.35;
+    }
+
+    .event h3{margin:0 0 6px; font-size:1.08rem; letter-spacing:-.025em; line-height:1.2}
+    .event p{margin:0; color:var(--ink-soft); font-size:.96rem}
+
+    .timeline{display:grid; gap:12px}
+    .timeline-item{
+      display:grid; grid-template-columns:160px 1fr; gap:18px;
+      padding:18px 0;
+      border-top:1px dashed var(--line-strong);
+    }
+    .timeline-item:first-child{border-top:none; padding-top:0}
+    .timeline-item .time{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size:.78rem; text-transform:uppercase; letter-spacing:.14em;
+      color:var(--accent);
+      padding-top:4px;
+    }
+    .timeline-item h3{margin:0 0 5px; line-height:1.2}
+    .timeline-item p{margin:0; color:var(--ink-soft)}
+
+    .wide-card{
+      display:grid;
+      grid-template-columns:1fr .82fr;
+      gap:18px;
+      padding:26px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,255,255,.38)),
+        var(--panel-2);
+    }
+
+    .note-box{
+      min-height:140px;
+      border-radius:20px;
+      padding:20px;
+      background:
+        repeating-linear-gradient(180deg, rgba(20,32,51,.035), rgba(20,32,51,.035) 1px, transparent 1px, transparent 28px),
+        rgba(255,255,255,.58);
+      border:1px solid var(--line);
+      display:grid; align-items:center;
+      color:var(--ink);
+      font-size:1.05rem;
+    }
+
+    .contact-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+    .contact-card{
+      background:rgba(255,255,255,.52);
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:18px 18px 20px;
+    }
+    .contact-card strong{display:block;margin-bottom:8px;font-size:1rem;letter-spacing:-.02em}
+    .contact-card span{color:var(--ink-soft);font-size:.96rem}
+
+    footer{padding:18px 0 46px}
+    .footer-card{
+      padding:18px 22px;
+      background:rgba(244,240,232,.92);
+      display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap;
+    }
+    .footer-card span{color:var(--ink-soft);font-size:.92rem}
+
+    @media (max-width: 980px){
+      .hero, .pub-layout, .wide-card, .cards, .cards.two, .contact-grid, .event-grid{grid-template-columns:1fr}
+      .section-top, .timeline-item, .micro-note, .event{grid-template-columns:1fr}
+      .hero-main, .hero-side, .section-card, .wide-card{border-radius:24px}
+    }
+
+    @media (max-width: 760px){
+      .nav-links{display:none}
+      .container{width:min(var(--max), calc(100% - 24px))}
+      .hero-wrap{padding-top:24px}
+      .hero-main, .hero-side, .section-card, .wide-card{padding-left:20px; padding-right:20px}
     }
   </style>
 </head>
 <body>
   <header>
     <nav class="container" aria-label="Main navigation">
-      <a class="brand" href="#top" aria-label="Ángel Merino Hernández home">
+      <a class="brand" href="#top">
         <span class="brand-mark">Á</span>
-        <span>Ángel Merino Hernández</span>
+        <span class="brand-name">
+          <strong>Ángel Merino Hernández</strong>
+          <span>research · measurement · networks</span>
+        </span>
       </a>
       <div class="nav-links">
         <a href="#research">Research</a>
         <a href="#publications">Publications</a>
+        <a href="#events">Events</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
       </div>
@@ -368,175 +465,325 @@
   </header>
 
   <main id="top">
-    <div class="container hero">
-      <div>
-        <span class="eyebrow"><span class="dot"></span> PhD Candidate · Universidad Carlos III de Madrid</span>
-        <h1>Studying the internet’s <span class="gradient-text">hidden measurement layer.</span></h1>
-        <p class="lead">
-          I am a PhD Candidate and researcher in the Department of Telematic Engineering at Universidad Carlos III de Madrid.
-          My research focuses on user privacy in social networks and online advertising systems, plus automated data collection
-          and analysis from online systems.
-        </p>
-        <div class="hero-actions">
-          <a class="button primary" href="#publications">View publications →</a>
-          <a class="button" href="https://researchportal.uc3m.es/display/inv47570">UC3M Research Portal</a>
-          <a class="button" href="https://orcid.org/0000-0001-5992-8143">ORCID</a>
-          <a class="button" href="https://github.com/angel-gitt" rel="me">GitHub</a>
-        </div>
-      </div>
+    <div class="container hero-wrap">
+      <div class="hero">
+        <section class="hero-main">
+          <span class="eyebrow"><span class="dot"></span> PhD Candidate · Universidad Carlos III de Madrid</span>
+          <h1>Making digital systems a little more <span class="headline-accent">observable.</span></h1>
+          <p class="lead">
+            I am a PhD Candidate and researcher in the Department of Telematic Engineering at Universidad Carlos III de Madrid.
+            My work focuses on online advertising, user privacy in social networks, and automated data collection and analysis
+            for studying how platform systems actually behave in practice.
+          </p>
+          <div class="actions">
+            <a class="button primary" href="#publications">Selected publications →</a>
+            <a class="button" href="https://researchportal.uc3m.es/display/inv47570">UC3M Research Portal</a>
+            <a class="button" href="https://orcid.org/0000-0001-5992-8143">ORCID</a>
+            <a class="button" href="https://github.com/angel-gitt">GitHub</a>
+          </div>
+          <div class="micro-note">
+            <strong>Field note</strong>
+            <span>I am especially interested in research methods that turn opaque platform behaviour into measurable evidence: data collection, measurement pipelines, retrieval systems, and privacy-aware empirical analysis.</span>
+          </div>
+        </section>
 
-      <aside class="profile-card" aria-label="Profile summary">
-        <div class="avatar">ÁM</div>
-        <h2>Researcher in online privacy, ads, and social data</h2>
-        <p>
-          I build empirical tools to make opaque online systems easier to observe, measure, and explain.
-          I build empirical tools to make opaque online systems easier to observe, measure, and explain.
-        </p>
-        <div class="facts">
-          <div class="fact"><strong>Affiliation</strong><span>Universidad Carlos III de Madrid · Telematic Engineering</span></div>
-          <div class="fact"><strong>Education</strong><span>BSc in Telecommunication Technologies Engineering · MSc in Cybersecurity</span></div>
-          <div class="fact"><strong>Contact</strong><span><a href="mailto:angel.merino@uc3m.es">angel.merino@uc3m.es</a></span></div>
-        </div>
-      </aside>
+        <aside class="hero-side">
+          <div class="portrait-card">
+            <img class="portrait" src="https://avatars.githubusercontent.com/u/61295407?v=4" alt="Portrait of Ángel Merino Hernández from GitHub" />
+            <div class="portrait-caption">
+              <span>Ángel Merino Hernández</span>
+              <a href="https://github.com/angel-gitt">GitHub photo</a>
+            </div>
+          </div>
+          <div class="profile-facts">
+            <div class="fact">
+              <strong>Affiliation</strong>
+              <span>Universidad Carlos III de Madrid · Department of Telematic Engineering</span>
+            </div>
+            <div class="fact">
+              <strong>Education</strong>
+              <span>BSc in Telecommunication Technologies Engineering · MSc in Cybersecurity</span>
+            </div>
+            <div class="fact">
+              <strong>Email</strong>
+              <span><a href="mailto:angel.merino@uc3m.es">angel.merino@uc3m.es</a></span>
+            </div>
+          </div>
+        </aside>
+      </div>
     </div>
 
     <section id="research">
       <div class="container">
-        <div class="section-head">
-          <h2>Research focus</h2>
-          <p>Empirical methods for understanding how platforms mediate identity, targeting, advertising, and privacy.</p>
-        </div>
-        <div class="grid">
-          <article class="card">
-            <h3>Online advertising & privacy</h3>
-            <p>Measurement of advertising systems, user targeting, privacy risks, and the practical activation of seemingly generic public attributes.</p>
-            <div class="tag-row"><span class="tag">online advertising</span><span class="tag">nanotargeting</span><span class="tag">privacy</span></div>
-          </article>
-          <article class="card">
-            <h3>Automated data collection</h3>
-            <p>Tools and pipelines for collecting and analysing data from online systems, with a focus on reproducibility and scale.</p>
-            <div class="tag-row"><span class="tag">scraping</span><span class="tag">measurement</span><span class="tag">automation</span></div>
-          </article>
-          <article class="card">
-            <h3>Social networks & user data</h3>
-            <p>Analysis of social platform data to study uniqueness, data protection issues, and platform-mediated social phenomena.</p>
-            <div class="tag-row"><span class="tag">social networks</span><span class="tag">non-PII</span><span class="tag">user data</span></div>
-          </article>
+        <div class="section-card">
+          <div class="section-top">
+            <div class="section-kicker">Research focus</div>
+            <div class="section-heading">
+              <h2>Questions worth measuring carefully</h2>
+              <p>My work sits at the intersection of platform studies, empirical measurement, and computational analysis of online systems.</p>
+            </div>
+          </div>
+          <div class="cards">
+            <article class="card">
+              <h3>Online advertising & privacy</h3>
+              <p>Studying advertising infrastructures, user targeting, and privacy risks, including how apparently generic public attributes can still enable precise targeting.</p>
+              <div class="meta-row">
+                <span class="chip">advertising systems</span>
+                <span class="chip">nanotargeting</span>
+                <span class="chip">privacy</span>
+              </div>
+            </article>
+            <article class="card">
+              <h3>Automated data collection</h3>
+              <p>Designing reproducible pipelines for collecting and analysing data from online systems, with attention to scale, validity, and transparency.</p>
+              <div class="meta-row">
+                <span class="chip">measurement</span>
+                <span class="chip">automation</span>
+                <span class="chip">reproducibility</span>
+              </div>
+            </article>
+            <article class="card">
+              <h3>Social networks & user data</h3>
+              <p>Investigating how social platforms structure visibility, uniqueness, and user information, especially when public data can be repurposed in unexpected ways.</p>
+              <div class="meta-row">
+                <span class="chip">social media</span>
+                <span class="chip">user uniqueness</span>
+                <span class="chip">non-PII</span>
+              </div>
+            </article>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="publications">
       <div class="container">
-        <div class="section-head">
-          <h2>Publications</h2>
-          <p>Selected public research outputs and conference contributions.</p>
+        <div class="section-card">
+          <div class="section-top">
+            <div class="section-kicker">Publications</div>
+            <div class="section-heading">
+              <h2>Selected publications</h2>
+              <p>A cleaner publication layout, with journal and conference outputs separated from posters and supporting material.</p>
+            </div>
+          </div>
+
+          <div class="pub-layout">
+            <a class="publication featured" href="https://doi.org/10.1016/j.array.2025.100499">
+              <span class="pub-meta">Journal article · Array · 2025</span>
+              <h3>KPN-anonymity: Extension of K-anonymity for user anonymity evaluation on web applications</h3>
+              <p>Ángel Merino, Ángel Cuevas, Rubén Cuevas. Proposes a metric for evaluating anonymity in real-world data systems and compares Meta, LinkedIn, and Twitter/X through advertising-system audience data.</p>
+              <div class="meta-row">
+                <span class="chip">DOI: 10.1016/j.array.2025.100499</span>
+                <span class="chip">anonymity</span>
+                <span class="chip">social networks</span>
+              </div>
+            </a>
+
+            <div class="pub-list">
+              <a class="publication" href="https://doi.org/10.1145/3613904.3642107">
+                <span class="pub-meta">Conference paper · CHI 2024</span>
+                <h3>Analysis and Implementation of Nanotargeting on LinkedIn Based on Publicly Available Non-PII</h3>
+                <p>Ángel Merino Hernández, José González-Cabañas, Ángel Cuevas Rumín, Rubén Cuevas Rumín.</p>
+                <div class="meta-row">
+                  <span class="chip">LinkedIn</span>
+                  <span class="chip">nanotargeting</span>
+                  <span class="chip">privacy</span>
+                </div>
+              </a>
+
+              <a class="publication" href="https://conferences.sigcomm.org/imc/2023/accepted-posters/">
+                <span class="pub-meta">Poster · ACM IMC 2023</span>
+                <h3>Analysis of User Uniqueness on LinkedIn Based on Publicly Available Non-PII</h3>
+                <p>Poster contribution on how combinations of public non-PII attributes can make LinkedIn users highly unique.</p>
+                <div class="meta-row">
+                  <span class="chip">user uniqueness</span>
+                  <span class="chip">non-PII</span>
+                  <span class="chip">measurement</span>
+                </div>
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="grid two">
-          <a class="card paper" href="https://doi.org/10.1145/3613904.3642107">
-            <small>CHI 2024 · ACM</small>
-            <h3>Analysis and Implementation of Nanotargeting on LinkedIn Based on Publicly Available Non-PII</h3>
-            <p>Ángel Merino Hernández, José González-Cabañas, Ángel Cuevas Rumín, Rubén Cuevas Rumín. Proceedings of the CHI Conference on Human Factors in Computing Systems, 2024.</p>
-            <div class="tag-row"><span class="tag">LinkedIn</span><span class="tag">nanotargeting</span><span class="tag">user privacy</span></div>
-          </a>
-          <a class="card paper" href="https://conferences.sigcomm.org/imc/2023/accepted-posters/">
-            <small>ACM IMC 2023 · Poster</small>
-            <h3>Analysis of User Uniqueness on LinkedIn Based on Publicly Available Non-PII</h3>
-            <p>Poster contribution on how combinations of public non-PII attributes can make LinkedIn users unique.</p>
-            <div class="tag-row"><span class="tag">user uniqueness</span><span class="tag">non-PII</span><span class="tag">measurement</span></div>
-          </a>
+      </div>
+    </section>
+
+    <section id="events">
+      <div class="container">
+        <div class="section-card">
+          <div class="section-top">
+            <div class="section-kicker">Events</div>
+            <div class="section-heading">
+              <h2>Talks, tutorials & research visits</h2>
+              <p>Selected public events where I have presented or taught methods for studying privacy, online advertising, and platform data.</p>
+            </div>
+          </div>
+
+          <div class="event-grid">
+            <a class="event" href="https://www.qmul.ac.uk/sbm/research/research-centres/cgr/">
+              <div class="event-date">23 Oct<br>2025</div>
+              <div>
+                <h3>CGR-LISS Masterclass at Queen Mary University of London</h3>
+                <p>“Extracting online data for the analysis of privacy risks, algorithmic bias and price dynamics”, taught by Ángel Merino Hernández.</p>
+              </div>
+            </a>
+
+            <a class="event" href="https://coseners.qmul.ac.uk/history/previous/coseners-2025/">
+              <div class="event-date">3 Jul<br>2025</div>
+              <div>
+                <h3>MSN / Coseners 2025</h3>
+                <p>Presentation in the Security and Privacy session: “Nanotargeting on LinkedIn”.</p>
+              </div>
+            </a>
+
+            <a class="event" href="https://www.sigmetrics.org/sigmetrics2024/tutorials.html#T4.A">
+              <div class="event-date">10 Jun<br>2024</div>
+              <div>
+                <h3>ACM SIGMETRICS / IFIP PERFORMANCE 2024 Tutorial</h3>
+                <p>Tutorial T4.A in Venice: “Unveiling privacy and data protection issues from the use of social media and online advertising platforms”.</p>
+              </div>
+            </a>
+
+            <a class="event" href="https://latincom2023.ieee-latincom.org/program/tutorials">
+              <div class="event-date">16 Nov<br>2023</div>
+              <div>
+                <h3>IEEE LATINCOM 2023 Tutorial</h3>
+                <p>“Unveiling Privacy and Data Protection Issues from the Use of Social Media and Online Advertising Platforms”.</p>
+              </div>
+            </a>
+
+            <a class="event" href="https://cyberjourney.it/en/22-june-edition/">
+              <div class="event-date">22 Jun<br>2023</div>
+              <div>
+                <h3>CyberJourney · Cagliari, T-Hotel</h3>
+                <p>Talk: “Analysis and implementation of nanotargeting on LinkedIn based on publicly available non-PII information.”</p>
+              </div>
+            </a>
+
+            <a class="event" href="https://t3chfest.es/2023/programa/">
+              <div class="event-date">2023</div>
+              <div>
+                <h3>T3chFest 2023</h3>
+                <p>Talk on how generic data can make users unique among millions of users.</p>
+              </div>
+            </a>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="projects">
       <div class="container">
-        <div class="section-head">
-          <h2>Projects & collaborations</h2>
-          <p>Research contexts in which I contribute to privacy-aware, empirical analysis of online and social systems.</p>
-        </div>
-        <div class="grid">
-          <article class="card">
-            <h3>TESTABLE / TSAR</h3>
-            <p>Security and privacy testing for web applications, including research outputs on online advertising and privacy risks.</p>
-            <div class="tag-row"><span class="tag">H2020</span><span class="tag">web security</span><span class="tag">privacy testing</span></div>
-          </article>
-          <article class="card">
-            <h3>A2-PrivComp</h3>
-            <p>Distributed learning with privacy constraints for edge computing, listed in UC3M's research portal among active research projects.</p>
-            <div class="tag-row"><span class="tag">privacy</span><span class="tag">distributed learning</span><span class="tag">edge</span></div>
-          </article>
-          <article class="card">
-            <h3>MapCDPerNets</h3>
-            <p>Mapping Cultural Diversity through Personal Networks. I collaborate on collection and analysis of social-network user data, specifically from Meta platforms.</p>
-            <div class="tag-row"><span class="tag">social networks</span><span class="tag">Meta platforms</span><span class="tag">cultural diversity</span></div>
-          </article>
+        <div class="section-card">
+          <div class="section-top">
+            <div class="section-kicker">Projects</div>
+            <div class="section-heading">
+              <h2>Research contexts & collaborations</h2>
+              <p>Projects and collaborations that connect privacy, distributed systems, online platforms, and empirical analysis.</p>
+            </div>
+          </div>
+          <div class="cards">
+            <article class="card">
+              <h3>TESTABLE / TSAR</h3>
+              <p>Research work connected to security and privacy testing for web applications, including outputs related to online advertising and privacy risks.</p>
+              <div class="meta-row">
+                <span class="chip">web security</span>
+                <span class="chip">privacy testing</span>
+                <span class="chip">H2020 context</span>
+              </div>
+            </article>
+            <article class="card">
+              <h3>A2-PrivComp</h3>
+              <p>Research portal-listed work on distributed learning with privacy constraints for edge computing environments.</p>
+              <div class="meta-row">
+                <span class="chip">distributed learning</span>
+                <span class="chip">edge</span>
+                <span class="chip">privacy</span>
+              </div>
+            </article>
+            <article class="card">
+              <h3>MapCDPerNets</h3>
+              <p>Collaboration around the collection and analysis of social-network user data, specifically involving Meta platforms and questions of cultural diversity.</p>
+              <div class="meta-row">
+                <span class="chip">personal networks</span>
+                <span class="chip">Meta platforms</span>
+                <span class="chip">social data</span>
+              </div>
+            </article>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="experience">
       <div class="container">
-        <div class="section-head">
-          <h2>Teaching & outreach</h2>
-          <p>Public activities and teaching related to communications networks, privacy, and social media data.</p>
-        </div>
-        <div class="timeline">
-          <article class="timeline-item">
-            <div class="time">Teaching</div>
-            <div>
-              <h3>UC3M teaching support</h3>
-              <p>Laboratory teaching in Communication Networks and Services and Switching, according to the public UC3M profile.</p>
+        <div class="section-card">
+          <div class="section-top">
+            <div class="section-kicker">Teaching & outreach</div>
+            <div class="section-heading">
+              <h2>Public engagement and teaching</h2>
+              <p>Academic communication, public outreach, and teaching support around networks, data, and online privacy.</p>
             </div>
-          </article>
-          <article class="timeline-item">
-            <div class="time">T3chFest 2023</div>
-            <div>
-              <h3>“Descubre cómo tus datos genéricos te hacen único entre millones de usuarios”</h3>
-              <p>Talk with José González Cabañas on uniqueness from generic data in large online user bases.</p>
-            </div>
-          </article>
-          <article class="timeline-item">
-            <div class="time">Researchers' Night 2022</div>
-            <div>
-              <h3>Public outreach on social-network uniqueness</h3>
-              <p>Conference and demonstration at the European Researchers' Night in Madrid, organised through UC3M.</p>
-            </div>
-          </article>
+          </div>
+          <div class="timeline">
+            <article class="timeline-item">
+              <div class="time">Teaching</div>
+              <div>
+                <h3>UC3M teaching support</h3>
+                <p>Laboratory teaching in Communication Networks and Services and Switching, according to the public UC3M profile.</p>
+              </div>
+            </article>
+            <article class="timeline-item">
+              <div class="time">Researchers' Night 2022</div>
+              <div>
+                <h3>Social-network uniqueness outreach</h3>
+                <p>Conference and demonstration at the European Researchers' Night in Madrid, organised through UC3M.</p>
+              </div>
+            </article>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="notes">
-      <div class="container wide-card">
-        <div>
-          <h2 style="margin:0 0 10px; letter-spacing:-0.055em; font-size:clamp(1.8rem,4vw,2.8rem);">Technical notes</h2>
-          <p style="color:var(--muted); margin:0 0 18px;">A small interactive note for the technically minded visitor.</p>
-          <button class="button primary" type="button" id="noteButton">Another note</button>
+      <div class="container">
+        <div class="wide-card">
+          <div>
+            <div class="section-kicker" style="padding-top:0; margin-bottom:8px;">Notes</div>
+            <h2 style="margin:0 0 10px; font-family:Georgia, 'Times New Roman', serif; font-size:clamp(1.9rem,4vw,2.8rem); letter-spacing:-.05em;">A small rotating margin note</h2>
+            <p style="margin:0; color:var(--ink-soft); max-width:54ch;">A compact space for short ideas about measurement, privacy, and empirical work.</p>
+            <div class="actions" style="margin-top:20px;">
+              <button class="button primary" type="button" id="noteButton">Another note</button>
+            </div>
+          </div>
+          <div class="note-box" id="noteBox" aria-live="polite"></div>
         </div>
-        <div class="joke-box" id="noteBox" aria-live="polite"></div>
       </div>
     </section>
 
     <section id="contact">
       <div class="container">
-        <div class="section-head">
-          <h2>Contact</h2>
-          <p>Open to collaborations around platform measurement, online advertising, privacy, social data, and automated empirical methods.</p>
-        </div>
-        <div class="grid">
-          <a class="card" href="mailto:angel.merino@uc3m.es">
-            <h3>Email</h3>
-            <p>angel.merino@uc3m.es</p>
-          </a>
-          <a class="card" href="https://www.it.uc3m.es/amerino/index.html">
-            <h3>UC3M personal page</h3>
-            <p>Academic profile, teaching, news, and contact information.</p>
-          </a>
-          <a class="card" href="https://researchportal.uc3m.es/display/inv47570">
-            <h3>Research portal</h3>
-            <p>ORCID, publications, projects, and institutional profile.</p>
-          </a>
+        <div class="section-card">
+          <div class="section-top">
+            <div class="section-kicker">Contact</div>
+            <div class="section-heading">
+              <h2>Where to find me</h2>
+              <p>For collaborations or conversations about platform measurement, online advertising, privacy, and computational social-media research.</p>
+            </div>
+          </div>
+          <div class="contact-grid">
+            <a class="contact-card" href="mailto:angel.merino@uc3m.es">
+              <strong>Email</strong>
+              <span>angel.merino@uc3m.es</span>
+            </a>
+            <a class="contact-card" href="https://www.it.uc3m.es/amerino/index.html">
+              <strong>UC3M personal page</strong>
+              <span>Academic profile, teaching, and contact details.</span>
+            </a>
+            <a class="contact-card" href="https://researchportal.uc3m.es/display/inv47570">
+              <strong>UC3M Research Portal</strong>
+              <span>Institutional profile, projects, publications, and ORCID.</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -544,20 +791,21 @@
 
   <footer>
     <div class="container">
-      <span>© <span id="year"></span> Ángel Merino Hernández. Built with plain HTML, CSS, and plain HTML, CSS, and JavaScript.</span>
-      <span>Hosted on GitHub Pages.</span>
+      <div class="footer-card">
+        <span>© <span id="year"></span> Ángel Merino Hernández</span>
+        <span>Built with plain HTML, CSS, and JavaScript · Hosted on GitHub Pages</span>
+      </div>
     </div>
   </footer>
 
   <script>
     const notes = [
       "Good measurement starts with careful instrumentation.",
-      "Models are useful; validation is mandatory.",
-      "Approximate search is powerful when the approximations are measured.",
+      "Visibility is not the same as understanding, but it is usually a good start.",
       "Simple diagnostics often beat complex assumptions.",
-      "Research becomes stronger when methods are easy to reproduce.",
-      "Privacy research turns visibility into evidence.",
-      "Clear claims survive better than clever claims.",
+      "Research becomes stronger when the method is easy to reproduce.",
+      "Privacy research turns opacity into evidence.",
+      "Clear empirical claims tend to travel further than clever slogans.",
       "Measurement connects theory, systems, and observed behaviour."
     ];
 

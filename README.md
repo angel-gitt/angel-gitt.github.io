@@ -2,19 +2,20 @@
 
 Personal academic website for Ángel Merino Hernández.
 
-Built as a static GitHub Pages site with plain HTML, CSS, and JavaScript.
+## Highlights
+
+- Custom editorial / field-notes visual style
+- GitHub profile photo integrated as portrait
+- Improved publications layout with journal, conference, and poster outputs
+- Talks, tutorials, and public events section, including CyberJourney
+- Plain HTML, CSS, and JavaScript
 
 ## Deploy
 
-Replace the current `index.html` in `angel-gitt/angel-gitt.github.io` and push to `main`:
+Replace the current files in `angel-gitt/angel-gitt.github.io` and push to `main`:
 
 ```bash
-git add index.html README.md
-git commit -m "Polish academic personal website"
+git add index.html README.md SOURCES.md
+git commit -m "Add SIGMETRICS 2024 tutorial"
 git push origin main
-```
-
-GitHub Pages will publish it at:
-
-https://angel-gitt.github.io
 ```
