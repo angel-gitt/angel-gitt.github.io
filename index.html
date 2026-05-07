@@ -10,7 +10,6 @@
     :root{
       --bg:#f7f4ee;
       --paper:#fbfaf7;
-      --paper-2:#f2ede3;
       --text:#23342f;
       --muted:#5d6a67;
       --line:#ddd4c5;
@@ -18,7 +17,7 @@
       --accent:#1f5d5a;
       --accent-2:#b57a50;
       --max:1180px;
-      --shadow:0 10px 30px rgba(30,38,35,.05);
+      --shadow:0 10px 30px rgba(30,38,35,.045);
     }
 
     *{box-sizing:border-box}
@@ -36,9 +35,8 @@
       inset:0;
       pointer-events:none;
       background:
-        radial-gradient(circle at 0% 0%, rgba(181,122,80,.06), transparent 20%),
-        radial-gradient(circle at 100% 0%, rgba(31,93,90,.05), transparent 20%);
-      opacity:.9;
+        radial-gradient(circle at 0% 0%, rgba(181,122,80,.055), transparent 22%),
+        radial-gradient(circle at 100% 0%, rgba(31,93,90,.045), transparent 24%);
     }
 
     a{color:inherit;text-decoration:none}
@@ -48,19 +46,14 @@
 
     .topbar{
       display:grid;
-      grid-template-columns:220px 1fr;
+      grid-template-columns:minmax(260px, 1fr) auto;
       gap:28px;
       padding:0 0 18px;
       border-bottom:1px solid var(--line);
       align-items:end;
     }
 
-    .identity{
-      display:flex;
-      align-items:flex-start;
-      gap:14px;
-    }
-
+    .identity{display:flex;align-items:flex-start;gap:14px}
     .monogram{
       font-family: Georgia, "Times New Roman", serif;
       font-size:2.4rem;
@@ -70,443 +63,88 @@
       padding-top:2px;
     }
 
-    .identity-text strong{
-      display:block;
-      font-size:1rem;
-      letter-spacing:.11em;
-      text-transform:uppercase;
-    }
+    .identity-text strong{display:block;font-size:1rem;letter-spacing:.11em;text-transform:uppercase}
+    .identity-text span{display:block;margin-top:4px;color:var(--muted);font-size:.9rem;letter-spacing:.08em;text-transform:uppercase}
 
-    .identity-text span{
-      display:block;
-      margin-top:4px;
-      color:var(--muted);
-      font-size:.9rem;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-    }
+    .top-actions{display:flex;align-items:center;justify-content:flex-end;gap:20px;flex-wrap:wrap}
+    nav{display:flex;justify-content:flex-end;flex-wrap:wrap;gap:22px;padding-bottom:4px}
+    nav a{font-size:.94rem;color:var(--text)}
+    nav a.active{color:var(--accent);border-bottom:2px solid var(--accent);padding-bottom:8px}
 
-    nav{
-      display:flex;
-      justify-content:flex-end;
-      flex-wrap:wrap;
-      gap:24px;
-      padding-bottom:4px;
-    }
+    .language-switch{display:flex;border:1px solid var(--line-2);background:rgba(255,255,255,.28)}
+    .language-switch button{border:0;background:transparent;color:var(--muted);padding:7px 9px;font-weight:700;cursor:pointer;font-size:.78rem;letter-spacing:.05em}
+    .language-switch button.active{background:var(--accent);color:#fff}
 
-    nav a{
-      font-size:.95rem;
-      color:var(--text);
-    }
+    .hero{display:grid;grid-template-columns:1.18fr .82fr;gap:38px;padding:36px 0 30px;align-items:start}
+    .eyebrow{font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;display:block}
+    h1{margin:0 0 12px;font-family:Georgia,"Times New Roman",serif;font-size:clamp(3rem,6vw,5rem);line-height:.95;letter-spacing:-.06em;color:var(--accent);max-width:10.5ch}
+    .accent-rule{width:56px;height:3px;background:var(--accent-2);margin:12px 0 20px;border-radius:999px}
+    .subtitle{font-family:Georgia,"Times New Roman",serif;font-size:1.42rem;color:var(--text);margin:0 0 18px;max-width:36ch}
+    .lead{margin:0;max-width:62ch;font-size:1.08rem;line-height:1.76;color:var(--muted)}
+    .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+    .button{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border:1px solid var(--accent);border-radius:8px;background:transparent;color:var(--accent);font-weight:650;font-size:.96rem}
+    .button.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
 
-    nav a.active{
-      color:var(--accent);
-      border-bottom:2px solid var(--accent);
-      padding-bottom:8px;
-    }
+    .portrait-wrap{display:grid;gap:16px}
+    .portrait{width:min(100%,345px);justify-self:end;background:var(--paper);padding:12px;border:1px solid var(--line);box-shadow:var(--shadow);margin:0}
+    .portrait img{width:100%;display:block;aspect-ratio:4/5;object-fit:cover;background:#e9e1d6}
 
-    .hero{
-      display:grid;
-      grid-template-columns: 1.25fr .75fr;
-      gap:34px;
-      padding:34px 0 28px;
-      align-items:start;
-    }
+    .quick-facts{display:grid;gap:9px;width:min(100%,345px);justify-self:end}
+    .fact{border-top:1px solid var(--line);padding-top:10px;color:var(--muted);font-size:.94rem;line-height:1.45}
+    .fact strong{display:block;color:var(--accent);font-size:.78rem;text-transform:uppercase;letter-spacing:.11em;margin-bottom:2px}
 
-    .eyebrow{
-      font-size:.82rem;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      color:var(--accent);
-      margin-bottom:12px;
-      display:block;
-    }
+    .summary-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:4px 0 0;background:rgba(251,250,247,.38)}
+    .summary-item{padding:16px 18px;border-left:1px solid var(--line)}
+    .summary-item:first-child{border-left:0}
+    .summary-item strong{display:block;color:var(--accent);font-size:.8rem;text-transform:uppercase;letter-spacing:.11em;margin-bottom:6px}
+    .summary-item span{color:var(--muted);font-size:.96rem;line-height:1.45}
 
-    h1{
-      margin:0 0 12px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size:clamp(3rem, 6vw, 5.1rem);
-      line-height:.95;
-      letter-spacing:-.06em;
-      color:var(--accent);
-      max-width:10ch;
-    }
+    section{padding:28px 0 0}
+    .section-heading{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:16px}
+    .section-heading h2{margin:0;font-size:1rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-2);font-weight:750}
+    .section-heading a{color:var(--accent);font-size:.95rem}
 
-    .accent-rule{
-      width:56px;
-      height:3px;
-      background:var(--accent-2);
-      margin:12px 0 20px;
-      border-radius:999px;
-    }
+    .publications-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;align-items:start}
+    .pub-card{background:var(--paper);border:1px solid var(--line);padding:18px;min-height:245px;box-shadow:var(--shadow)}
+    .pub-meta{color:var(--muted);text-transform:uppercase;letter-spacing:.09em;font-size:.72rem;font-weight:750;margin-bottom:10px}
+    .pub-card h3{margin:0 0 12px;font-family:Georgia,"Times New Roman",serif;font-size:1.3rem;line-height:1.22;color:var(--text)}
+    .pub-card p{margin:0;color:var(--muted);line-height:1.65;font-size:.97rem}
+    .pub-card .link{display:inline-block;margin-top:18px;color:var(--accent);font-weight:650}
 
-    .subtitle{
-      font-family: Georgia, "Times New Roman", serif;
-      font-size:1.46rem;
-      color:var(--text);
-      margin:0 0 18px;
-    }
-
-    .lead{
-      margin:0;
-      max-width:60ch;
-      font-size:1.1rem;
-      line-height:1.75;
-      color:var(--muted);
-    }
-
-    .actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      margin-top:26px;
-    }
-
-    .button{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:12px 16px;
-      border:1px solid var(--accent);
-      border-radius:10px;
-      background:transparent;
-      color:var(--accent);
-      font-weight:600;
-      font-size:.96rem;
-    }
-
-    .button.primary{
-      background:var(--accent);
-      color:#fff;
-      border-color:var(--accent);
-    }
-
-    .portrait-wrap{
-      display:grid;
-      justify-items:end;
-      gap:16px;
-    }
-
-    .portrait{
-      width:min(100%, 345px);
-      background:var(--paper);
-      padding:16px 16px 20px;
-      border:1px solid var(--line);
-      box-shadow:var(--shadow);
-      transform:rotate(-1.6deg);
-    }
-
-    .portrait img{
-      width:100%;
-      display:block;
-      aspect-ratio: 4 / 5;
-      object-fit:cover;
-      background:#e9e1d6;
-    }
-
-    .portrait figcaption{
-      margin-top:10px;
-      font-family: "Brush Script MT", "Segoe Script", cursive;
-      font-size:1.6rem;
-      color:var(--muted);
-      text-align:center;
-    }
-
-    .aside-note{
-      width:min(100%, 345px);
-      border-top:1px solid var(--line);
-      padding-top:18px;
-      color:var(--muted);
-      font-size:.96rem;
-      line-height:1.65;
-    }
-
-    .divider{
-      border-top:1px solid var(--line);
-      margin:10px 0 0;
-    }
-
-    section{
-      padding:24px 0 0;
-    }
-
-    .section-heading{
-      display:flex;
-      align-items:baseline;
-      justify-content:space-between;
-      gap:16px;
-      margin-bottom:16px;
-    }
-
-    .section-heading h2{
-      margin:0;
-      font-size:1rem;
-      letter-spacing:.16em;
-      text-transform:uppercase;
-      color:var(--accent-2);
-      font-weight:700;
-    }
-
-    .section-heading a{
-      color:var(--accent);
-      font-size:.95rem;
-    }
-
-    .publications-grid{
-      display:grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap:16px;
-      align-items:start;
-    }
-
-    .pub-card{
-      background:var(--paper);
-      border:1px solid var(--line);
-      padding:18px;
-      min-height:240px;
-      box-shadow:var(--shadow);
-    }
-
-    .pub-meta{
-      color:var(--muted);
-      text-transform:uppercase;
-      letter-spacing:.09em;
-      font-size:.72rem;
-      font-weight:700;
-      margin-bottom:10px;
-    }
-
-    .pub-card h3{
-      margin:0 0 12px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size:1.34rem;
-      line-height:1.2;
-      color:var(--text);
-    }
-
-    .pub-card p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.65;
-      font-size:.98rem;
-    }
-
-    .pub-card .link{
-      display:inline-block;
-      margin-top:18px;
-      color:var(--accent);
-      font-weight:600;
-    }
-
-    .content-split{
-      display:grid;
-      grid-template-columns: 1.5fr .85fr;
-      gap:26px;
-      align-items:start;
-    }
-
-    .events-box{
-      border:1px solid var(--line);
-      background:var(--paper);
-      box-shadow:var(--shadow);
-    }
-
-    .event-row{
-      display:grid;
-      grid-template-columns:108px 1.6fr 1fr;
-      gap:18px;
-      padding:18px 20px;
-      border-top:1px solid var(--line);
-      align-items:start;
-    }
-
+    .content-split{display:grid;grid-template-columns:1.55fr .8fr;gap:28px;align-items:start}
+    .events-box{border:1px solid var(--line);background:var(--paper);box-shadow:var(--shadow)}
+    .event-row{display:grid;grid-template-columns:102px 1.55fr 1fr;gap:18px;padding:18px 20px;border-top:1px solid var(--line);align-items:start}
     .event-row:first-child{border-top:none}
+    .event-date{color:var(--accent);font-weight:750;font-size:.8rem;line-height:1.3;text-transform:uppercase;letter-spacing:.08em}
+    .event-date strong{display:block;font-size:1.85rem;line-height:1;letter-spacing:-.05em;color:var(--accent);margin:.1rem 0}
+    .event-main h3{margin:0 0 6px;font-size:1.08rem;line-height:1.24;color:var(--text)}
+    .event-main p,.event-place p{margin:0;color:var(--muted);line-height:1.5;font-size:.94rem}
+    .event-type{color:var(--accent-2);font-style:italic;margin-bottom:2px}
 
-    .event-date{
-      color:var(--accent);
-      font-weight:700;
-      font-size:.82rem;
-      line-height:1.3;
-      text-transform:uppercase;
-      letter-spacing:.08em;
-    }
+    .aside-stack{display:grid;gap:22px}
+    .panel{background:transparent;border-top:1px solid var(--line-2);padding-top:16px}
+    .panel h3{margin:0 0 12px;color:var(--accent-2);text-transform:uppercase;letter-spacing:.14em;font-size:.86rem}
+    .tag-list{display:flex;flex-wrap:wrap;gap:10px}
+    .tag{padding:8px 12px;border:1px solid var(--line);background:var(--paper);color:var(--accent);font-size:.88rem}
+    .methods{display:grid;gap:10px;color:var(--muted);font-size:.95rem;line-height:1.55}
+    .methods strong{color:var(--text)}
+    .affiliation{display:grid;gap:14px}
+    .affiliation-item{display:grid;grid-template-columns:42px 1fr;gap:14px;align-items:start}
+    .badge{width:42px;height:42px;display:grid;place-items:center;border:1px solid var(--line);color:var(--accent);background:var(--paper);font-weight:750;font-size:.82rem}
+    .affiliation-item strong{display:block;margin-bottom:4px;font-size:.98rem}
+    .affiliation-item span{color:var(--muted);font-size:.92rem;line-height:1.45}
 
-    .event-date strong{
-      display:block;
-      font-size:2rem;
-      line-height:1;
-      letter-spacing:-.05em;
-      color:var(--accent);
-      margin:.1rem 0;
-    }
+    .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .project-card{background:transparent;border-top:1px solid var(--line-2);padding-top:14px}
+    .project-card h3{margin:0 0 8px;font-size:1.12rem;color:var(--text)}
+    .project-card p{margin:0;color:var(--muted);font-size:.96rem;line-height:1.65}
 
-    .event-main h3{
-      margin:0 0 6px;
-      font-size:1.1rem;
-      line-height:1.24;
-      color:var(--text);
-    }
+    .contact{display:flex;flex-wrap:wrap;gap:18px 30px;padding:20px 0 0;border-top:1px solid var(--line);margin-top:26px;color:var(--muted);font-size:.96rem}
+    .contact a{color:var(--accent)}
+    footer{padding:24px 0 0;color:var(--muted);font-size:.94rem}
 
-    .event-main p,
-    .event-place p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.5;
-      font-size:.95rem;
-    }
-
-    .event-type{
-      color:var(--accent-2);
-      font-style:italic;
-      margin-bottom:2px;
-    }
-
-    .aside-stack{
-      display:grid;
-      gap:18px;
-    }
-
-    .panel{
-      background:transparent;
-      border-top:1px solid var(--line-2);
-      padding-top:16px;
-    }
-
-    .panel h3{
-      margin:0 0 12px;
-      color:var(--accent-2);
-      text-transform:uppercase;
-      letter-spacing:.14em;
-      font-size:.86rem;
-    }
-
-    .tag-list{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-    }
-
-    .tag{
-      padding:8px 12px;
-      border:1px solid var(--line);
-      background:var(--paper);
-      color:var(--accent);
-      font-size:.88rem;
-    }
-
-    .affiliation{
-      display:grid;
-      gap:14px;
-    }
-
-    .affiliation-item{
-      display:grid;
-      grid-template-columns:42px 1fr;
-      gap:14px;
-      align-items:start;
-    }
-
-    .badge{
-      width:42px;
-      height:42px;
-      display:grid;
-      place-items:center;
-      border:1px solid var(--line);
-      color:var(--accent);
-      background:var(--paper);
-      font-weight:700;
-      font-size:.82rem;
-    }
-
-    .affiliation-item strong{
-      display:block;
-      margin-bottom:4px;
-      font-size:.98rem;
-    }
-
-    .affiliation-item span{
-      color:var(--muted);
-      font-size:.92rem;
-      line-height:1.45;
-    }
-
-    .projects-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:16px;
-    }
-
-    .project-card{
-      background:transparent;
-      border-top:1px solid var(--line-2);
-      padding-top:14px;
-    }
-
-    .project-card h3{
-      margin:0 0 8px;
-      font-size:1.12rem;
-      color:var(--text);
-    }
-
-    .project-card p{
-      margin:0;
-      color:var(--muted);
-      font-size:.96rem;
-      line-height:1.65;
-    }
-
-    .contact{
-      display:flex;
-      flex-wrap:wrap;
-      gap:18px 30px;
-      padding:20px 0 0;
-      border-top:1px solid var(--line);
-      margin-top:26px;
-      color:var(--muted);
-      font-size:.96rem;
-    }
-
-    .contact a{
-      color:var(--accent);
-    }
-
-    footer{
-      padding:24px 0 0;
-      color:var(--muted);
-      font-size:.94rem;
-    }
-
-    @media (max-width: 1020px){
-      .hero, .content-split, .publications-grid, .projects-grid{
-        grid-template-columns:1fr;
-      }
-      .portrait-wrap{
-        justify-items:start;
-      }
-      .topbar{
-        grid-template-columns:1fr;
-        gap:16px;
-      }
-      nav{
-        justify-content:flex-start;
-      }
-    }
-
-    @media (max-width: 760px){
-      .container{width:min(var(--max), calc(100% - 22px))}
-      nav{gap:14px}
-      .event-row{
-        grid-template-columns:1fr;
-        gap:10px;
-      }
-      .section-heading{
-        display:block;
-      }
-      .section-heading a{
-        display:inline-block;
-        margin-top:8px;
-      }
-    }
+    @media (max-width:1020px){.hero,.content-split,.publications-grid,.projects-grid,.summary-strip{grid-template-columns:1fr}.portrait,.quick-facts{justify-self:start}.topbar{grid-template-columns:1fr;gap:16px}.top-actions,nav{justify-content:flex-start}.summary-item{border-left:0;border-top:1px solid var(--line)}.summary-item:first-child{border-top:0}}
+    @media (max-width:760px){.container{width:min(var(--max),calc(100% - 22px))}nav{gap:14px}.event-row{grid-template-columns:1fr;gap:10px}.section-heading{display:block}.section-heading a{display:inline-block;margin-top:8px}h1{font-size:clamp(2.55rem,14vw,4rem)}}
   </style>
 </head>
 <body>
@@ -517,16 +155,22 @@
           <div class="monogram">ÁM</div>
           <div class="identity-text">
             <strong>Ángel Merino Hernández</strong>
-            <span>Social media data · Privacy · Online advertising</span>
+            <span data-en="Social media data · Privacy · Online advertising" data-es="Datos de redes sociales · Privacidad · Publicidad online">Social media data · Privacy · Online advertising</span>
           </div>
         </div>
-        <nav aria-label="Primary">
-          <a class="active" href="#top">Home</a>
-          <a href="#publications">Publications</a>
-          <a href="#events">Events</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
-        </nav>
+        <div class="top-actions">
+          <nav aria-label="Primary">
+            <a class="active" href="#top" data-en="Home" data-es="Inicio">Home</a>
+            <a href="#publications" data-en="Publications" data-es="Publicaciones">Publications</a>
+            <a href="#events" data-en="Events" data-es="Eventos">Events</a>
+            <a href="#projects" data-en="Projects" data-es="Proyectos">Projects</a>
+            <a href="#contact" data-en="Contact" data-es="Contacto">Contact</a>
+          </nav>
+          <div class="language-switch" aria-label="Language selector">
+            <button type="button" class="active" data-set-lang="en">EN</button>
+            <button type="button" data-set-lang="es">ES</button>
+          </div>
+        </div>
       </header>
 
       <main id="top">
@@ -535,71 +179,58 @@
             <span class="eyebrow">Universidad Carlos III de Madrid (UC3M)</span>
             <h1>Ángel Merino Hernández</h1>
             <div class="accent-rule"></div>
-            <p class="subtitle">Researcher in Social Media Data, Privacy, and Online Advertising</p>
-            <p class="lead">
-              I study the intersection of online behavioural data, platform ecosystems, and digital advertising.
-              My work combines computational social science and data analytics to understand how data practices
-              shape individual experiences, privacy risks, and broader societal outcomes.
-            </p>
+            <p class="subtitle" data-en="PhD Candidate researching online advertising, privacy, and social media data" data-es="Doctorando en publicidad online, privacidad y datos de redes sociales">PhD Candidate researching online advertising, privacy, and social media data</p>
+            <p class="lead" data-en="I study how social platforms and advertising systems use public and behavioural data. My work combines large-scale data collection, computational social science, and empirical measurement to analyse privacy risks, user uniqueness, and targeting practices in real online systems." data-es="Estudio cómo las plataformas sociales y los sistemas de publicidad utilizan datos públicos y de comportamiento. Mi trabajo combina recogida de datos a gran escala, ciencia social computacional y medición empírica para analizar riesgos de privacidad, unicidad de usuarios y prácticas de segmentación en sistemas online reales.">I study how social platforms and advertising systems use public and behavioural data. My work combines large-scale data collection, computational social science, and empirical measurement to analyse privacy risks, user uniqueness, and targeting practices in real online systems.</p>
             <div class="actions">
-              <a class="button primary" href="#publications">Publications</a>
-              <a class="button" href="#events">Talks & Tutorials</a>
-              <a class="button" href="https://researchportal.uc3m.es/display/inv47570">Research Portal</a>
-              <a class="button" href="mailto:angel.merino@uc3m.es">Contact</a>
+              <a class="button primary" href="#publications" data-en="Publications" data-es="Publicaciones">Publications</a>
+              <a class="button" href="#events" data-en="Talks & Tutorials" data-es="Charlas y tutoriales">Talks & Tutorials</a>
+              <a class="button" href="https://researchportal.uc3m.es/display/inv47570" data-en="Research Portal" data-es="Portal de investigación">Research Portal</a>
+              <a class="button" href="mailto:angel.merino@uc3m.es" data-en="Contact" data-es="Contacto">Contact</a>
             </div>
           </div>
 
           <div class="portrait-wrap">
             <figure class="portrait">
               <img src="https://avatars.githubusercontent.com/u/61295407?v=4" alt="Portrait of Ángel Merino Hernández" />
-              <figcaption>Ángel Merino Hernández</figcaption>
             </figure>
-            <div class="aside-note">
-              <strong style="color:var(--accent); display:block; margin-bottom:6px;">Current focus</strong>
-              Measuring how social platforms and advertising systems use public data, structure visibility,
-              and create privacy and targeting risks in practice.
+            <div class="quick-facts">
+              <div class="fact"><strong data-en="Affiliation" data-es="Afiliación">Affiliation</strong><span>Universidad Carlos III de Madrid · Department of Telematic Engineering</span></div>
+              <div class="fact"><strong data-en="Current focus" data-es="Foco actual">Current focus</strong><span data-en="Measurement of privacy and targeting risks in social platforms and advertising systems." data-es="Medición de riesgos de privacidad y segmentación en plataformas sociales y sistemas publicitarios.">Measurement of privacy and targeting risks in social platforms and advertising systems.</span></div>
+              <div class="fact"><strong>Email</strong><span><a href="mailto:angel.merino@uc3m.es">angel.merino@uc3m.es</a></span></div>
             </div>
           </div>
         </section>
 
-        <div class="divider"></div>
+        <div class="summary-strip" aria-label="Profile summary">
+          <div class="summary-item"><strong data-en="Role" data-es="Perfil">Role</strong><span data-en="PhD Candidate and researcher in Telematic Engineering at UC3M." data-es="Doctorando e investigador en Ingeniería Telemática en la UC3M.">PhD Candidate and researcher in Telematic Engineering at UC3M.</span></div>
+          <div class="summary-item"><strong data-en="Methods" data-es="Métodos">Methods</strong><span data-en="Web measurement, data collection, social data analysis, privacy evaluation." data-es="Medición web, recogida de datos, análisis social y evaluación de privacidad.">Web measurement, data collection, social data analysis, privacy evaluation.</span></div>
+          <div class="summary-item"><strong data-en="Outputs" data-es="Resultados">Outputs</strong><span data-en="CHI 2024, Array 2025, IMC poster, tutorials and invited talks." data-es="CHI 2024, Array 2025, póster en IMC, tutoriales y charlas invitadas.">CHI 2024, Array 2025, IMC poster, tutorials and invited talks.</span></div>
+          <div class="summary-item"><strong data-en="Links" data-es="Enlaces">Links</strong><span><a href="https://orcid.org/0000-0001-5992-8143">ORCID</a> · <a href="https://github.com/angel-gitt">GitHub</a> · <a href="https://www.it.uc3m.es/amerino/index.html">UC3M</a></span></div>
+        </div>
 
         <section id="publications">
           <div class="section-heading">
-            <h2>Publications</h2>
-            <a href="https://researchportal.uc3m.es/display/inv47570">View institutional profile →</a>
+            <h2 data-en="Publications" data-es="Publicaciones">Publications</h2>
+            <a href="https://researchportal.uc3m.es/display/inv47570" data-en="View institutional profile →" data-es="Ver perfil institucional →">View institutional profile →</a>
           </div>
-
           <div class="publications-grid">
             <article class="pub-card">
-              <div class="pub-meta">Journal article · 2025</div>
+              <div class="pub-meta" data-en="Journal article · 2025" data-es="Artículo de revista · 2025">Journal article · 2025</div>
               <h3>KPN-anonymity: Extension of K-anonymity for user anonymity evaluation on web applications</h3>
-              <p>
-                Ángel Merino, Ángel Cuevas, Rubén Cuevas.
-                <em>Array</em>, 2025. Extends K-anonymity for evaluating user anonymity in web applications
-                and compares Meta, LinkedIn, and Twitter/X through advertising-system audience data.
-              </p>
-              <a class="link" href="https://doi.org/10.1016/j.array.2025.100499">Read article →</a>
+              <p data-en="Ángel Merino, Ángel Cuevas, Rubén Cuevas. Array, 2025. Extends K-anonymity for evaluating user anonymity in web applications and compares Meta, LinkedIn, and Twitter/X through advertising-system audience data." data-es="Ángel Merino, Ángel Cuevas, Rubén Cuevas. Array, 2025. Extiende K-anonymity para evaluar anonimato de usuarios en aplicaciones web y compara Meta, LinkedIn y Twitter/X usando datos de audiencia de sistemas publicitarios.">Ángel Merino, Ángel Cuevas, Rubén Cuevas. <em>Array</em>, 2025. Extends K-anonymity for evaluating user anonymity in web applications and compares Meta, LinkedIn, and Twitter/X through advertising-system audience data.</p>
+              <a class="link" href="https://doi.org/10.1016/j.array.2025.100499" data-en="Read article →" data-es="Leer artículo →">Read article →</a>
             </article>
-
             <article class="pub-card">
-              <div class="pub-meta">Conference paper · CHI 2024</div>
+              <div class="pub-meta" data-en="Conference paper · CHI 2024" data-es="Artículo de conferencia · CHI 2024">Conference paper · CHI 2024</div>
               <h3>Analysis and Implementation of Nanotargeting on LinkedIn Based on Publicly Available Non-PII</h3>
-              <p>
-                Ángel Merino Hernández, José González-Cabañas, Ángel Cuevas Rumín, Rubén Cuevas Rumín.
-                Study of how publicly available non-PII can still enable fine-grained targeting on LinkedIn.
-              </p>
-              <a class="link" href="https://doi.org/10.1145/3613904.3642107">Read paper →</a>
+              <p data-en="Ángel Merino Hernández, José González-Cabañas, Ángel Cuevas Rumín, Rubén Cuevas Rumín. Study of how publicly available non-PII can still enable fine-grained targeting on LinkedIn." data-es="Ángel Merino Hernández, José González-Cabañas, Ángel Cuevas Rumín, Rubén Cuevas Rumín. Estudio sobre cómo datos públicos no-PII pueden permitir segmentación muy precisa en LinkedIn.">Ángel Merino Hernández, José González-Cabañas, Ángel Cuevas Rumín, Rubén Cuevas Rumín. Study of how publicly available non-PII can still enable fine-grained targeting on LinkedIn.</p>
+              <a class="link" href="https://doi.org/10.1145/3613904.3642107" data-en="Read paper →" data-es="Leer paper →">Read paper →</a>
             </article>
-
             <article class="pub-card">
-              <div class="pub-meta">Poster · ACM IMC 2023</div>
+              <div class="pub-meta" data-en="Poster · ACM IMC 2023" data-es="Póster · ACM IMC 2023">Poster · ACM IMC 2023</div>
               <h3>Analysis of User Uniqueness on LinkedIn Based on Publicly Available Non-PII</h3>
-              <p>
-                Poster contribution on how combinations of public non-PII attributes can make LinkedIn users
-                highly unique and empirically measurable.
-              </p>
-              <a class="link" href="https://conferences.sigcomm.org/imc/2023/accepted-posters/">View poster listing →</a>
+              <p data-en="Poster contribution on how combinations of public non-PII attributes can make LinkedIn users highly unique and empirically measurable." data-es="Contribución en formato póster sobre cómo combinaciones de atributos públicos no-PII pueden hacer que usuarios de LinkedIn sean altamente únicos y medibles empíricamente.">Poster contribution on how combinations of public non-PII attributes can make LinkedIn users highly unique and empirically measurable.</p>
+              <a class="link" href="https://conferences.sigcomm.org/imc/2023/accepted-posters/" data-en="View poster listing →" data-es="Ver listado del póster →">View poster listing →</a>
             </article>
           </div>
         </section>
@@ -608,185 +239,61 @@
           <div class="content-split">
             <div>
               <div class="section-heading">
-                <h2>Talks & Events</h2>
-                <a href="https://www.it.uc3m.es/amerino/index.html">More academic activity →</a>
+                <h2 data-en="Talks & Events" data-es="Charlas y eventos">Talks & Events</h2>
+                <a href="https://www.it.uc3m.es/amerino/index.html" data-en="More academic activity →" data-es="Más actividad académica →">More academic activity →</a>
               </div>
-
               <div class="events-box">
-                <article class="event-row">
-                  <div class="event-date">Oct <strong>23</strong> 2025</div>
-                  <div class="event-main">
-                    <h3>CGR-LISS Masterclass at Queen Mary University of London</h3>
-                    <p class="event-type">Masterclass</p>
-                    <p>“Extracting online data for the analysis of privacy risks, algorithmic bias and price dynamics”.</p>
-                  </div>
-                  <div class="event-place">
-                    <p>Centre for Globalisation Research</p>
-                    <p>Queen Mary University of London</p>
-                  </div>
-                </article>
-
-                <article class="event-row">
-                  <div class="event-date">Jul <strong>03</strong> 2025</div>
-                  <div class="event-main">
-                    <h3>MSN / Coseners 2025</h3>
-                    <p class="event-type">Conference presentation</p>
-                    <p>Security and Privacy session talk: “Nanotargeting on LinkedIn”.</p>
-                  </div>
-                  <div class="event-place">
-                    <p>Queen Mary University of London</p>
-                    <p>London, United Kingdom</p>
-                  </div>
-                </article>
-
-                <article class="event-row">
-                  <div class="event-date">Jun <strong>10</strong> 2024</div>
-                  <div class="event-main">
-                    <h3>ACM SIGMETRICS / IFIP PERFORMANCE 2024 Tutorial</h3>
-                    <p class="event-type">Tutorial T4.A</p>
-                    <p>“Unveiling privacy and data protection issues from the use of social media and online advertising platforms”.</p>
-                  </div>
-                  <div class="event-place">
-                    <p>Venice, Italy</p>
-                    <p>With Francisco Caravaca, Ángel Cuevas and Rubén Cuevas</p>
-                  </div>
-                </article>
-
-                <article class="event-row">
-                  <div class="event-date">Nov <strong>16</strong> 2023</div>
-                  <div class="event-main">
-                    <h3>IEEE LATINCOM 2023 Tutorial</h3>
-                    <p class="event-type">Tutorial</p>
-                    <p>“Unveiling Privacy and Data Protection Issues from the Use of Social Media and Online Advertising Platforms”.</p>
-                  </div>
-                  <div class="event-place">
-                    <p>IEEE LATINCOM 2023</p>
-                    <p>With Francisco Caravaca, Ángel Cuevas and Rubén Cuevas</p>
-                  </div>
-                </article>
-
-                <article class="event-row">
-                  <div class="event-date">Jun <strong>22</strong> 2023</div>
-                  <div class="event-main">
-                    <h3>CyberJourney · Cagliari, T-Hotel</h3>
-                    <p class="event-type">Talk</p>
-                    <p>“Analysis and implementation of nanotargeting on LinkedIn based on publicly available non-PII information.”</p>
-                  </div>
-                  <div class="event-place">
-                    <p>CyberJourney</p>
-                    <p>Cagliari, Italy</p>
-                  </div>
-                </article>
-
-                <article class="event-row">
-                  <div class="event-date">2023</div>
-                  <div class="event-main">
-                    <h3>T3chFest 2023</h3>
-                    <p class="event-type">Public talk</p>
-                    <p>Talk on how generic data can make users unique among millions of users.</p>
-                  </div>
-                  <div class="event-place">
-                    <p>T3chFest</p>
-                    <p>Madrid, Spain</p>
-                  </div>
-                </article>
+                <article class="event-row"><div class="event-date">Oct <strong>23</strong> 2025</div><div class="event-main"><h3>CGR-LISS Masterclass at Queen Mary University of London</h3><p class="event-type">Masterclass</p><p>“Extracting online data for the analysis of privacy risks, algorithmic bias and price dynamics”.</p></div><div class="event-place"><p>Centre for Globalisation Research</p><p>Queen Mary University of London</p></div></article>
+                <article class="event-row"><div class="event-date">Jul <strong>03</strong> 2025</div><div class="event-main"><h3>MSN / Coseners 2025</h3><p class="event-type" data-en="Conference presentation" data-es="Presentación en conferencia">Conference presentation</p><p>Security and Privacy session talk: “Nanotargeting on LinkedIn”.</p></div><div class="event-place"><p>Queen Mary University of London</p><p>London, United Kingdom</p></div></article>
+                <article class="event-row"><div class="event-date">Jun <strong>10</strong> 2024</div><div class="event-main"><h3>ACM SIGMETRICS / IFIP PERFORMANCE 2024 Tutorial</h3><p class="event-type">Tutorial T4.A</p><p>“Unveiling privacy and data protection issues from the use of social media and online advertising platforms”.</p></div><div class="event-place"><p>Venice, Italy</p><p data-en="With Francisco Caravaca, Ángel Cuevas and Rubén Cuevas" data-es="Con Francisco Caravaca, Ángel Cuevas y Rubén Cuevas">With Francisco Caravaca, Ángel Cuevas and Rubén Cuevas</p></div></article>
+                <article class="event-row"><div class="event-date">Nov <strong>16</strong> 2023</div><div class="event-main"><h3>IEEE LATINCOM 2023 Tutorial</h3><p class="event-type">Tutorial</p><p>“Unveiling Privacy and Data Protection Issues from the Use of Social Media and Online Advertising Platforms”.</p></div><div class="event-place"><p>IEEE LATINCOM 2023</p><p data-en="With Francisco Caravaca, Ángel Cuevas and Rubén Cuevas" data-es="Con Francisco Caravaca, Ángel Cuevas y Rubén Cuevas">With Francisco Caravaca, Ángel Cuevas and Rubén Cuevas</p></div></article>
+                <article class="event-row"><div class="event-date">Jun <strong>22</strong> 2023</div><div class="event-main"><h3>CyberJourney · Cagliari, T-Hotel</h3><p class="event-type" data-en="Talk" data-es="Charla">Talk</p><p>“Analysis and implementation of nanotargeting on LinkedIn based on publicly available non-PII information.”</p></div><div class="event-place"><p>CyberJourney</p><p>Cagliari, Italy</p></div></article>
+                <article class="event-row"><div class="event-date">2023</div><div class="event-main"><h3>T3chFest 2023</h3><p class="event-type" data-en="Public talk" data-es="Charla divulgativa">Public talk</p><p data-en="Talk on how generic data can make users unique among millions of users." data-es="Charla sobre cómo datos aparentemente genéricos pueden hacer único a un usuario entre millones.">Talk on how generic data can make users unique among millions of users.</p></div><div class="event-place"><p>T3chFest</p><p>Madrid, Spain</p></div></article>
               </div>
             </div>
 
             <aside class="aside-stack">
-              <section class="panel">
-                <h3>Research interests</h3>
-                <div class="tag-list">
-                  <span class="tag">Online advertising</span>
-                  <span class="tag">Privacy</span>
-                  <span class="tag">Social networks</span>
-                  <span class="tag">User uniqueness</span>
-                  <span class="tag">Nanotargeting</span>
-                  <span class="tag">Automated measurement</span>
-                </div>
-              </section>
-
-              <section class="panel">
-                <h3>Affiliations & links</h3>
-                <div class="affiliation">
-                  <div class="affiliation-item">
-                    <div class="badge">UC3M</div>
-                    <div>
-                      <strong>Universidad Carlos III de Madrid</strong>
-                      <span>Department of Telematic Engineering</span>
-                    </div>
-                  </div>
-
-                  <div class="affiliation-item">
-                    <div class="badge">ID</div>
-                    <div>
-                      <strong>ORCID</strong>
-                      <span><a href="https://orcid.org/0000-0001-5992-8143">0000-0001-5992-8143</a></span>
-                    </div>
-                  </div>
-
-                  <div class="affiliation-item">
-                    <div class="badge">GH</div>
-                    <div>
-                      <strong>GitHub</strong>
-                      <span><a href="https://github.com/angel-gitt">github.com/angel-gitt</a></span>
-                    </div>
-                  </div>
-                </div>
-              </section>
+              <section class="panel"><h3 data-en="Research interests" data-es="Intereses de investigación">Research interests</h3><div class="tag-list"><span class="tag" data-en="Online advertising" data-es="Publicidad online">Online advertising</span><span class="tag" data-en="Privacy" data-es="Privacidad">Privacy</span><span class="tag" data-en="Social networks" data-es="Redes sociales">Social networks</span><span class="tag" data-en="User uniqueness" data-es="Unicidad de usuarios">User uniqueness</span><span class="tag">Nanotargeting</span><span class="tag" data-en="Automated measurement" data-es="Medición automatizada">Automated measurement</span></div></section>
+              <section class="panel"><h3 data-en="Methods & tools" data-es="Métodos y herramientas">Methods & tools</h3><div class="methods"><span><strong>Data collection:</strong> web automation, crawling, platform measurement.</span><span><strong>Analysis:</strong> Python, semantic retrieval, topic modelling, privacy metrics.</span><span><strong>Systems:</strong> reproducible pipelines for large-scale online data.</span></div></section>
+              <section class="panel"><h3 data-en="Affiliations & links" data-es="Afiliación y enlaces">Affiliations & links</h3><div class="affiliation"><div class="affiliation-item"><div class="badge">UC3M</div><div><strong>Universidad Carlos III de Madrid</strong><span>Department of Telematic Engineering</span></div></div><div class="affiliation-item"><div class="badge">ID</div><div><strong>ORCID</strong><span><a href="https://orcid.org/0000-0001-5992-8143">0000-0001-5992-8143</a></span></div></div><div class="affiliation-item"><div class="badge">GH</div><div><strong>GitHub</strong><span><a href="https://github.com/angel-gitt">github.com/angel-gitt</a></span></div></div></div></section>
             </aside>
           </div>
         </section>
 
         <section id="projects">
-          <div class="section-heading">
-            <h2>Projects</h2>
-          </div>
-
+          <div class="section-heading"><h2 data-en="Projects" data-es="Proyectos">Projects</h2></div>
           <div class="projects-grid">
-            <article class="project-card">
-              <h3>TESTABLE / TSAR</h3>
-              <p>
-                Research linked to security and privacy testing for web applications, including work related
-                to advertising systems and privacy risks.
-              </p>
-            </article>
-
-            <article class="project-card">
-              <h3>A2-PrivComp</h3>
-              <p>
-                Distributed learning with privacy constraints for edge computing environments,
-                listed through the UC3M research portal.
-              </p>
-            </article>
-
-            <article class="project-card">
-              <h3>MapCDPerNets</h3>
-              <p>
-                Collaboration around the collection and analysis of social-network user data,
-                especially on Meta platforms and cultural-diversity questions.
-              </p>
-            </article>
+            <article class="project-card"><h3>TESTABLE / TSAR</h3><p data-en="Research linked to security and privacy testing for web applications, including work related to advertising systems and privacy risks." data-es="Investigación vinculada a pruebas de seguridad y privacidad en aplicaciones web, incluyendo trabajo relacionado con sistemas publicitarios y riesgos de privacidad.">Research linked to security and privacy testing for web applications, including work related to advertising systems and privacy risks.</p></article>
+            <article class="project-card"><h3>A2-PrivComp</h3><p data-en="Distributed learning with privacy constraints for edge computing environments, listed through the UC3M research portal." data-es="Aprendizaje distribuido con restricciones de privacidad para entornos edge, recogido en el portal de investigación de la UC3M.">Distributed learning with privacy constraints for edge computing environments, listed through the UC3M research portal.</p></article>
+            <article class="project-card"><h3>MapCDPerNets</h3><p data-en="Collaboration around the collection and analysis of social-network user data, especially on Meta platforms and cultural-diversity questions." data-es="Colaboración en recogida y análisis de datos de usuarios de redes sociales, especialmente en plataformas de Meta y preguntas sobre diversidad cultural.">Collaboration around the collection and analysis of social-network user data, especially on Meta platforms and cultural-diversity questions.</p></article>
           </div>
         </section>
 
         <section id="contact">
           <div class="contact">
             <span><strong style="color:var(--text);">Email:</strong> <a href="mailto:angel.merino@uc3m.es">angel.merino@uc3m.es</a></span>
-            <span><strong style="color:var(--text);">UC3M page:</strong> <a href="https://www.it.uc3m.es/amerino/index.html">it.uc3m.es/amerino</a></span>
-            <span><strong style="color:var(--text);">Research portal:</strong> <a href="https://researchportal.uc3m.es/display/inv47570">institutional profile</a></span>
+            <span><strong style="color:var(--text);">UC3M:</strong> <a href="https://www.it.uc3m.es/amerino/index.html">it.uc3m.es/amerino</a></span>
+            <span><strong style="color:var(--text);" data-en="Research portal:" data-es="Portal de investigación:">Research portal:</strong> <a href="https://researchportal.uc3m.es/display/inv47570" data-en="institutional profile" data-es="perfil institucional">institutional profile</a></span>
           </div>
         </section>
       </main>
-
-      <footer>
-        © <span id="year"></span> Ángel Merino Hernández
-      </footer>
+      <footer>© <span id="year"></span> Ángel Merino Hernández</footer>
     </div>
   </div>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    const buttons = document.querySelectorAll('[data-set-lang]');
+    const translated = document.querySelectorAll('[data-en][data-es]');
+    function setLanguage(lang){
+      document.documentElement.lang = lang;
+      translated.forEach((el) => { el.innerHTML = el.dataset[lang]; });
+      buttons.forEach((btn) => btn.classList.toggle('active', btn.dataset.setLang === lang));
+      localStorage.setItem('preferred-language', lang);
+    }
+    buttons.forEach((btn) => btn.addEventListener('click', () => setLanguage(btn.dataset.setLang)));
+    const initial = localStorage.getItem('preferred-language') || ((navigator.language || '').startsWith('es') ? 'es' : 'en');
+    setLanguage(initial);
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
