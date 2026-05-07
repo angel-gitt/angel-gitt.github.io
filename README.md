@@ -1,22 +1,20 @@
 # angel-gitt.github.io
 
-Personal academic website for GitHub Pages.
+Personal academic website for Ángel Merino Hernández.
+
+Built as a static GitHub Pages site with plain HTML, CSS, and JavaScript.
 
 ## Deploy
 
+Replace the current `index.html` in `angel-gitt/angel-gitt.github.io` and push to `main`:
+
 ```bash
-git clone https://github.com/angel-gitt/angel-gitt.github.io.git
-cd angel-gitt.github.io
-cp /path/to/index.html index.html
 git add index.html README.md
-git commit -m "Build personal academic website"
+git commit -m "Polish academic personal website"
 git push origin main
 ```
 
-Then open: https://angel-gitt.github.io
+GitHub Pages will publish it at:
 
-## TODO
-
-- Replace `hello@example.com` with your academic email.
-- Add ORCID, Google Scholar, LinkedIn, and university profile links.
-- Add real publications once ready.
+https://angel-gitt.github.io
+```
